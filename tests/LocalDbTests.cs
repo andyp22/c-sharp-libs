@@ -17,9 +17,9 @@ namespace LocalDbTests
 {
   [TestFixture]
   class ProgramTests {
-    [TestCase("testNoPrefix", @"E:\Files\C#\LocalDbManager\tests\dbs", "", @"E:\Files\C#\LocalDbManager\tests\dbs\testNoPrefix.db")]
-    [TestCase("testNoPrefix", @"E:\Files\C#\LocalDbManager\tests\dbs", null, @"E:\Files\C#\LocalDbManager\tests\dbs\testNoPrefix.db")]
-    [TestCase("testWithPrefix", @"E:\Files\C#\LocalDbManager\tests\dbs", "test", @"E:\Files\C#\LocalDbManager\tests\dbs\test.testWithPrefix.db")]
+    [TestCase("testNoPrefix", @"E:\Git\c-sharp-libs\tests\dbs", "", @"E:\Git\c-sharp-libs\tests\dbs\testNoPrefix.db")]
+    [TestCase("testNoPrefix", @"E:\Git\c-sharp-libs\tests\dbs", null, @"E:\Git\c-sharp-libs\tests\dbs\testNoPrefix.db")]
+    [TestCase("testWithPrefix", @"E:\Git\c-sharp-libs\tests\dbs", "test", @"E:\Git\c-sharp-libs\tests\dbs\test.testWithPrefix.db")]
     public void Should_Return_DbUri_After_Creating_New_Database(string name, string uri, string prefix, string dbUri) {
       var localDb = new LocalDb(name, uri, prefix);
       Assert.AreEqual(localDb.DbUri, dbUri);
@@ -28,8 +28,8 @@ namespace LocalDbTests
 
     [TestCase("customers", "insert_test")]
     public void Inserts_Customer_In_Customers_Collection(string name, string dbName) {
-      this.Destroy($@"E:\Files\C#\LocalDbManager\tests\dbs\{dbName}.db");
-      var localDb = new LocalDb(dbName, @"E:\Files\C#\LocalDbManager\tests\dbs");
+      this.Destroy($@"E:\Git\c-sharp-libs\tests\dbs\{dbName}.db");
+      var localDb = new LocalDb(dbName, @"E:\Git\c-sharp-libs\tests\dbs");
       var col = localDb.GetCollection<Customer>(name);
       col.EnsureIndex(x => x.Name, true);
 
@@ -48,8 +48,8 @@ namespace LocalDbTests
 
     [TestCase("customers", "bulkInsert_test")]
     public void Bulk_Inserts_Customers_In_Customers_Collection(string name, string dbName) {
-      this.Destroy($@"E:\Files\C#\LocalDbManager\tests\dbs\{dbName}.db");
-      var localDb = new LocalDb(dbName, @"E:\Files\C#\LocalDbManager\tests\dbs");
+      this.Destroy($@"E:\Git\c-sharp-libs\tests\dbs\{dbName}.db");
+      var localDb = new LocalDb(dbName, @"E:\Git\c-sharp-libs\tests\dbs");
       var col = localDb.GetCollection<Customer>(name);
       col.EnsureIndex(x => x.Name, true);
 
@@ -135,8 +135,8 @@ namespace LocalDbTests
 
     [TestCase("customers", "update_test")]
     public void Update_Customer_In_Customers_Collection(string name, string dbName) {
-      this.Destroy($@"E:\Files\C#\LocalDbManager\tests\dbs\{dbName}.db");
-      var localDb = new LocalDb(dbName, @"E:\Files\C#\LocalDbManager\tests\dbs");
+      this.Destroy($@"E:\Git\c-sharp-libs\tests\dbs\{dbName}.db");
+      var localDb = new LocalDb(dbName, @"E:\Git\c-sharp-libs\tests\dbs");
       var col = localDb.GetCollection<Customer>(name);
       col.EnsureIndex(x => x.Name, true);
 
@@ -159,8 +159,8 @@ namespace LocalDbTests
 
     [TestCase("customers", "delete_test")]
     public void Delete_Customer_In_Customers_Collection(string name, string dbName) {
-      this.Destroy($@"E:\Files\C#\LocalDbManager\tests\dbs\{dbName}.db");
-      var localDb = new LocalDb(dbName, @"E:\Files\C#\LocalDbManager\tests\dbs");
+      this.Destroy($@"E:\Git\c-sharp-libs\tests\dbs\{dbName}.db");
+      var localDb = new LocalDb(dbName, @"E:\Git\c-sharp-libs\tests\dbs");
       var col = localDb.GetCollection<Customer>(name);
       col.EnsureIndex(x => x.Name, true);
 
