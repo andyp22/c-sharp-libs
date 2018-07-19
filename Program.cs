@@ -19,11 +19,11 @@ namespace CodeExamples
     [STAThread]
     static void Main(string[] args)
     {
-      var dbUri = @"E:\Git\c-sharp-libs";
+      var dbUri = @"E:\Git\c-sharp-libs\data";
       var dbManager = DatabaseIO.DbManager.Instance;
       
-      Destroy(@"E:\Git\c-sharp-libs\sampleNoPrefix.db");
-      Destroy(@"E:\Git\c-sharp-libs\sampleWithPrefix.db");
+      Destroy(@"E:\Git\c-sharp-libs\data\sampleNoPrefix.db");
+      Destroy(@"E:\Git\c-sharp-libs\data\test.sampleWithPrefix.db");
 
       dbManager.AddDatabase(new LocalDb("sampleNoPrefix", dbUri));
       dbManager.AddDatabase(new LocalDb("sampleWithPrefix", dbUri, "test"));
